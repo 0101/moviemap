@@ -5,3 +5,9 @@ html {
 
 .loading-indicator {display: none;}
 .loading .loading-indicator {display:block}
+
+.fade {
+  opacity: .3;
+  -moz-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+}

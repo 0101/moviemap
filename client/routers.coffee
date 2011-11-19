@@ -5,13 +5,14 @@ API = require './api'
 
 class Router extends Backbone.Router
 
-  initialize: (@movieList) ->
+  initialize: (@movieList, @selectedMovie) ->
 
   routes:
     'search/:query': 'search'
     'movie/:id': 'movieDetail'
 
   search: (string) ->
+    # TODO: first filter current results...
     console.log 'Router.search ', string
     console.log @movieList
     query = title: string
@@ -20,8 +21,12 @@ class Router extends Backbone.Router
       @movieList.reset response
       @trigger 'search:finished', string
 
-  movieDetail: (id) ->
-    console.log 'Router.movieDetail ', id
+  movieDetail: (fullTitle) ->
+    console.log 'Router.movieDetail ', fullTitle
+    API.getByFullTitle fullTitle, (response) =>
+      console.log "getByFullTitle response", response
+      console.log "selectedMovie:", @selectedMovie
+      @selectedMovie.set response
 
 
 module.exports = {Router}

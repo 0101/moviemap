@@ -1,0 +1,15 @@
+p movie detail template
+h2= fullTitle
+
+ul
+  for locRef in locations
+    li #{locRef.location.name} #{locRef.description}
+
+- if (episodes.length)
+  ul
+    for episode in episodes
+      li
+        | #{episode.number} #{episode.title}
+        ul
+          for locRef in episode.locations
+            li #{locRef.description} #{locRef.location}

@@ -9,3 +9,8 @@ module.exports =
   search: (query, callback) ->
     console.log "API search"
     apiGet 'search', query, callback
+
+  getByFullTitle: (fullTitle, callback) ->
+    console.log "API getByFullTitle", fullTitle
+    apiGet "movie/#{escape fullTitle}", {}, callback
+

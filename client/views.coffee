@@ -10,12 +10,15 @@ class SearchBar extends Backbone.View
   events:
     'keydown input': 'search'
 
+  focus: ->
+    # focus and move cursor to the end of the input
+    value = @$('input').val()
+    @$('input').focus().val('').val(value)
+
   render: (value='') ->
     hadFocus = @$('input').is ':focus'
     $(@el).html renderFile @template, {value}
-    if hadFocus
-      # reset focus and move cursor to the end
-      @$('input').focus().val('').val(value)
+    if hadFocus then @focus()
 
   search: ({keyCode}) ->
     value = $.trim @$('input').val()
@@ -31,7 +34,7 @@ class SearchResults extends Backbone.View
   template: 'search-results'
 
   events:
-    'click li': 'select'
+    'click li a': 'select'
 
   initialize: ->
     @collection.bind 'all', => @render()
@@ -41,7 +44,23 @@ class SearchResults extends Backbone.View
 
   select: (event) ->
     event.preventDefault()
-    console.log 'SearchResults->select ', event.target
+    @trigger 'select', $(event.target).attr 'href'
 
 
-module.exports = {SearchBar, SearchResults}
+class MovieDetail extends Backbone.View
+
+  template: 'movie-detail'
+
+  initialize: ->
+    console.log "MovieDetail initialize", @model
+    @model.bind 'change', => @render()
+
+  fadeOut: -> $(@el).addClass 'fade'
+  fadeIn: -> $(@el).removeClass 'fade'
+
+  render: ->
+    $(@el).removeClass 'fade'
+    $(@el).html renderFile @template, @model.toJSON()
+
+
+module.exports = {SearchBar, SearchResults, MovieDetail}
