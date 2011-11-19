@@ -1,0 +1,5 @@
+./static/*
+./templates/*
+*.coffee
+./.git/*
+*.swp

@@ -1,0 +1,13 @@
+extends base
+
+block content
+  h1 Movie Map
+
+  #search-bar
+    include includes/search-bar
+
+
+block scripts
+  :coffeescript
+    console.log "script in index.jade"
+    require '/index'

@@ -1,0 +1,7 @@
+html {
+	font-size: 14px;
+	font-family: "Segoe UI", Helvetica, sans-serif;}
+
+
+.loading-indicator {display: none;}
+.loading .loading-indicator {display:block}
