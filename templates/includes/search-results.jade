@@ -1,8 +1,12 @@
-
-p search results template
-ol
-  for movie in movies
-    li
-      a(href='#{movie.url}') #{movie.fullTitle}
-
-
+- if (movies.length === 0)
+  .no-results Sorry, nothing found
+- else
+  ol
+    for movie in movies
+      li
+        a(href='#{movie.url}')
+          span.content
+            span.image
+              - if (movie.imageUrl)
+                span.poster(style='background-image:url("#{movie.imageUrl}")')
+            span.title= movie.fullTitle

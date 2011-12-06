@@ -1,5 +1,5 @@
 ./static/*
 ./templates/*
-*.coffee
+#*.coffee
 ./.git/*
 *.swp

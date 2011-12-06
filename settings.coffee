@@ -6,7 +6,7 @@ base =
 
   env: process.env.NODE_ENV or 'development'
 
-  port: 4001
+  port: 4002
 
 
 # overrides for individual environments

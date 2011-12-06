@@ -1,2 +1,4 @@
 module.exports =
-  apiRoot: 'http://debook:4000/'
+  apiRoot: 'http://flapi.innit.cz/'
+  mapsApiUrl: 'http://maps.googleapis.com/maps/api/js'
+  mapsApiKey: 'AIzaSyDHi2rK3_qANfPsrCKV74Jzdl7GXCN2TjI'

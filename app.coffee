@@ -44,4 +44,4 @@ app.get '/movie/*', index
 
 app.listen settings.port
 
-console.log "running"
+console.log "running on port #{settings.port}"

@@ -14,3 +14,11 @@ module.exports =
     console.log "API getByFullTitle", fullTitle
     apiGet "movie/#{escape fullTitle}", {}, callback
 
+  getGeo: (locationId, callback) ->
+    console.log "API getGeo", locationId
+    apiGet "geo/#{escape locationId}", {}, callback
+
+  getImdbData: (movieId, callback) ->
+    console.log "API getImdbData", movieId
+    apiGet "imdbdata/#{escape movieId}", {}, callback
+
