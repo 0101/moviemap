@@ -26,6 +26,7 @@ class Router extends Backbone.Router
     API.getByFullTitle fullTitle, (response) =>
       console.log "getByFullTitle response", response
       console.log "selectedMovie:", @selectedMovie
+      @selectedMovie.clear silent:true
       @selectedMovie.set response
 
 

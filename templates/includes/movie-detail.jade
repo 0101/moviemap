@@ -1,13 +1,25 @@
-p movie detail template
-h2= fullTitle
+.info
+  h2
+    span.title= movie.title
+    span.year= movie.year
+    a.imdb(href='#{movie.imdbLink}',target='_blank') IMDB
+
+  - if (movie.plot)
+    p.plot= movie.plot
+  - if (movie.imageUrl)
+    .image-bg(style='background-image:url(#{movie.imageUrl})')
 
 ul
-  for locRef in locations
-    li #{locRef.location.name} #{locRef.description}
+  for locRef in movie.locations
+    - var cls = locRef.location.geo ? 'geo' : 'no-geo'
+    li(class='#{cls}', data-id='#{locRef._id}')
+      .location= locRef.location.name
+      - if (locRef.description)
+        .description= locRef.description
 
-- if (episodes.length)
+- if (movie.episodes.length)
   ul
-    for episode in episodes
+    for episode in movie.episodes
       li
         | #{episode.number} #{episode.title}
         ul

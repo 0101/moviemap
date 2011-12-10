@@ -4,7 +4,7 @@ html {
 
 body {background:#eee;}
 
-a, a:visited {text-decoration:none; color:#1A52CC;}
+a, a:visited {text-decoration:none; color:#1122CC;}
 a:hover {color:#474747;}
 a:focus {outline:none;}
 
@@ -67,6 +67,13 @@ a:focus {outline:none;}
 	background: no-repeat center #333; width:100%; height:100%; display:block;
 	background-size:100% auto;}
 .SearchResults li a:focus {background:rgba(0,0,0,0.05);}
+.SearchResults li a .content .title {padding-top:3px; display:inline-block;}
+.SearchResults li a .content .year {color: #333;}
+.SearchResults li a:hover {background-color:rgba(255,255,255,.5);}
+.SearchResults li a {
+  -moz-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;}
+
 .SearchResults .no-results {
 	padding:70px; text-align:center; font-size:36px; color:#999;
 	font-weight:bold; text-shadow:0 2px 1px #fff;}
@@ -79,12 +86,54 @@ a:focus {outline:none;}
   -webkit-transition: width 0.5s;*/}
 
 .MovieDetail {}
+.MovieDetail .info {
+	padding:20px; /*box-shadow: 0 20px 20px -20px #FFFFFF inset;*/
+	position:relative;
+	text-shadow:0 0 1px #fff,0 0 2px #fff,0 0 3px #fff;}
+.MovieDetail .info h2 {margin:0; font-size:28px; font-weight:normal;}
+.MovieDetail .info h2 .year {color:#666; padding:10px;}
+.MovieDetail .info .imdb {font-size:16px;}
+.MovieDetail .info .plot {font-style:italic; color:#333;}
+.MovieDetail .info .image-bg {
+	background-repeat: no-repeat; background-size:100% auto;
+	background-position: center;
+	position:absolute; left:0; right:0; top:0; bottom:0; z-index:-1;
+	opacity:.1;}
+.MovieDetail ul {margin:0; padding:0;}
+.MovieDetail li {
+  background:#ddd; cursor:default; color:#444;
+
+  list-style:none; padding:0;  min-height:30px;
+  border-top:1px solid #fff; border-bottom:1px solid #CECECE;
+  text-shadow:0 1px 1px #fff;
+
+  }
+.MovieDetail li.geo {
+cursor:pointer; color:#000;
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+
+.MovieDetail li div {padding:0 20px;}
+.MovieDetail li .location {padding:5px 20px 2px;}
+.MovieDetail li .description {
+	padding:2px 20px 5px; background:rgba(0,0,0,.02); color:#666;}
+
+.MovieDetail li.geo:hover {background:#F0EFFF;}
+.MovieDetail li.geo:hover .description {background:none;}
 
 .map-pane {
   position:relative; width:60%; height:100%; float:left;
   /*-moz-transition: width 0.5s;
   -webkit-transition: width 0.5s;*/}
-.map-pane .map-container {height:100%; background:#ddd;}
+.map-pane .map-container {
+	height:100%; background:#ddd; border-left:1px solid #aaa;}
 .map-pane .overlay {
 	position:absolute; left:0; right:0; top:0; bottom:0; background: #eee;
 	opacity:.8}

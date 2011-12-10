@@ -25,7 +25,9 @@ class Movie extends Backbone.Model
             else
               console.log "no geo,hmmmmm", newLocation
 
-  toJSON: -> _.extend super(), url: @url()
+  toJSON: -> _.extend super(),
+    url: @url()
+    imdbLink: "http://www.imdb.com/find?s=all&q=#{escape @get 'fullTitle'}"
 
   url: -> "/movie/#{@get 'fullTitle'}"
 

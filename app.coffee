@@ -18,7 +18,7 @@ app = express.createServer()
 
 app.configure ->
   app.use app.router
-  app.use express.logger()
+  app.use express.logger format: 'dev'
   app.use express.bodyParser()
   app.use express.static "#{__dirname}/static", maxAge: 365*24*60*60*1000
 

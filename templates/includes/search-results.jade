@@ -3,10 +3,12 @@
 - else
   ol
     for movie in movies
-      li
+      li(class='movie-#{movie._id}')
         a(href='#{movie.url}')
           span.content
             span.image
               - if (movie.imageUrl)
                 span.poster(style='background-image:url("#{movie.imageUrl}")')
-            span.title= movie.fullTitle
+            span.title
+              | #{movie.title}
+              span.year #{movie.year}

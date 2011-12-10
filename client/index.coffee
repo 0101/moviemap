@@ -45,8 +45,8 @@ $(document).ready ->
     $(window).resize()
 
   router.bind 'route:movieDetail', ->
-    map.clear()
     movieDetail.fadeIn()
+    map.showIfNotEmpty()
     bottomPane.unsetMapOnly()
 
   searchBar.focus()
