@@ -6,10 +6,18 @@ html(lang='en')
     link(rel='stylesheet', href='/css/normalize.css')
     link(rel='stylesheet', href='/css/style.css')
     title Movie Map
-
+  | <script type="text/javascript">
+  |   var _gaq = _gaq || [];
+  |   _gaq.push(['_setAccount', 'UA-27763722-1']);
+  |   _gaq.push(['_trackPageview']);
+  |   (function() {
+  |     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  |     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  |     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  |   })();
+  | </script>
   body
     block content
-    //script(src='/static/jquery-1.7.min.js')
     script(src='http://maps.googleapis.com/maps/api/js?key=AIzaSyDHi2rK3_qANfPsrCKV74Jzdl7GXCN2TjI&sensor=false')
     script(src='/browserify.js')
     block scripts
