@@ -25,7 +25,9 @@ router.bind 'all', (args...) ->
 navigateTo = (url) -> router.navigate url, true
 
 
-switchToMinLayout = -> $('body').addClass 'minimized'
+switchToMinLayout = ->
+  $('body').addClass 'minimized'
+  $(window).resize()
 
 
 $(document).ready ->
@@ -39,15 +41,20 @@ $(document).ready ->
     searchBar.showLoading()
   router.bind 'search:finished', (q) ->
     searchBar.hideLoading()
-    movieDetail.fadeOut()
+    # movieDetail.fadeOut()
     map.hide()
     switchToMinLayout()
-    $(window).resize()
+    bottomPane.setMapOnly()
+    # map.reset()
+    map.clear()
+    map.resize()
 
   router.bind 'route:movieDetail', ->
     movieDetail.fadeIn()
     map.showIfNotEmpty()
     bottomPane.unsetMapOnly()
+    switchToMinLayout()
+    searchBar.blur()
 
   searchBar.focus()
 

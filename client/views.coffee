@@ -18,6 +18,8 @@ class SearchBar extends Backbone.View
     value = @$('input').val()
     @$('input').focus().val('').val(value)
 
+  blur: -> @$('input').blur()
+
   setFocused: -> $(@el).addClass 'focused'
 
   unsetFocused: -> $(@el).removeClass 'focused'
@@ -112,6 +114,10 @@ class MovieDetail extends Backbone.View
 
 class Map extends Backbone.View
 
+  initialZoom: 3
+
+  initialPosition: new google.maps.LatLng 30, 30
+
   initialize: ->
     @points = []
     @bounds = new google.maps.LatLngBounds
@@ -120,8 +126,8 @@ class Map extends Backbone.View
   render: ->
     @map = new google.maps.Map @$('.map-container').get(0),
       mapTypeId: google.maps.MapTypeId.ROADMAP
-      zoom: 3
-      center: new google.maps.LatLng 30, 30
+      zoom: @initialZoom
+      center: @initialPosition
 
   addPoint: ({geo, name, description, _id}) ->
     google.maps.event.trigger @map, 'resize'
@@ -156,12 +162,13 @@ class Map extends Backbone.View
       marker.setAnimation google.maps.Animation.BOUNCE
       setTimeout (-> marker.setAnimation null), (3 * 750)
 
+  resize: -> google.maps.event.trigger @map, 'resize'
 
-
-
-
-
-
+  reset: ->
+    @clear()
+    @resize()
+    @map.setCenter @initialPosition
+    @map.setZoom @initialZoom
 
 
 
