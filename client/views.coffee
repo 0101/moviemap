@@ -63,10 +63,14 @@ class SearchResults extends Backbone.View
     $(@el).html renderFile @template, movies: @collection.toJSON()
     itemWidth = @$('a').width()
     @$('ol').width @collection.size() * itemWidth
+    @selected = null
 
   select: (event) ->
     event.preventDefault()
-    @trigger 'select', $(event.target).closest('a').attr 'href'
+    @selected?.removeClass 'selected'
+    @selected = $(event.target).closest 'a'
+    @trigger 'select', @selected.attr 'href'
+    @selected.addClass 'selected'
 
   scroll: (e, dir) ->
     dx = if dir is 1 then '-=450' else '+=450'

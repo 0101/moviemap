@@ -66,13 +66,15 @@ a:focus {outline:none;}
 .SearchResults li a .content .image .poster {
 	background: no-repeat center #333; width:100%; height:100%; display:block;
 	background-size:100% auto;}
-.SearchResults li a:focus {background:rgba(0,0,0,0.05);}
+.SearchResults li a:focus,
+.SearchResults li a.selected {background:rgba(0,0,0,0.05);}
 .SearchResults li a .content .title {padding-top:3px; display:inline-block;}
 .SearchResults li a .content .year {color: #333;}
 .SearchResults li a:hover {background-color:rgba(255,255,255,.5);}
 .SearchResults li a {
-  -moz-transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;}
+  -moz-transition: background-color 0.2s;}
+  /* Doesn't work properly in chrome... */
+  /* -webkit-transition: background-color 0.2s;} */
 
 .SearchResults .no-results {
 	padding:70px; text-align:center; font-size:36px; color:#999;
