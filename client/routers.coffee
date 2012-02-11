@@ -8,8 +8,12 @@ class Router extends Backbone.Router
   initialize: (@movieList, @selectedMovie) ->
 
   routes:
+    '': 'home'
     'search/:query': 'search'
     'movie/:id': 'movieDetail'
+
+  home: ->
+    console.log 'home sweet home'
 
   search: (string) ->
     # TODO: first filter current results...

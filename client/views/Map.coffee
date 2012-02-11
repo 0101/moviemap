@@ -32,6 +32,7 @@ module.exports = class Map extends BaseView
     @locRefs[_id] = {marker, position}
 
   clear: ->
+    @$('.map-container').css backgroundColor: '#a5bfdd'
     @points.map (marker) -> marker.setMap null
     @points = []
     @locRefs = {}

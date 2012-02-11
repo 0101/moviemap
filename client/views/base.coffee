@@ -13,5 +13,9 @@ class BaseView extends Backbone.View
     $el.html renderFile template, context
     $el.addClass className
 
+  show: -> $(@el).show()
+
+  hide: -> $(@el).hide()
+
 
 module.exports = {BaseView}

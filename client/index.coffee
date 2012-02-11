@@ -34,24 +34,40 @@ switchToMinLayout = ->
 
 $(document).ready ->
   console.log 'DOM ready'
+  $('.logo a').click (event) ->
+    event.preventDefault()
+    navigateTo ''
+
 
   searchBar = new SearchBar el: $('#search-bar').get 0
   searchBar.bind 'search', (text) -> navigateTo "search/#{text}"
 
-  router.bind 'all', (args...) ->
-    console.log "Router event: ", args
-    introBox.hide()
+  router.bind 'all', (route, args...) ->
+    console.log "Router event: ", route, args
+    if route isnt 'route:home'
+      introBox.hide()
+
+  router.bind 'route:home', ->
+    searchResults.hide()
+    map.hide()
+    bottomPane.setMapOnly()
+    map.clear()
+    map.resize()
+    introBox.show()
+    API.getExamples (response) -> examples.reset response
+    $('body').removeClass 'minimized'
+    $(window).resize()
 
   router.bind 'route:search', (q) ->
     searchBar.render q
     searchBar.showLoading()
+
   router.bind 'search:finished', (q) ->
+    searchResults.show()
     searchBar.hideLoading()
-    # movieDetail.fadeOut()
     map.hide()
     switchToMinLayout()
     bottomPane.setMapOnly()
-    # map.reset()
     map.clear()
     map.resize()
 
@@ -83,9 +99,5 @@ $(document).ready ->
   $('.movie-detail-pane').append movieDetail.el
 
   Backbone.history.start pushState: true
-
-  if window.location.pathname is '/'
-    # we're on homepage, fetch examples
-    API.getExamples (response) -> examples.reset response
 
 

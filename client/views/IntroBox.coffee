@@ -13,6 +13,8 @@ module.exports = class IntroBox extends BaseView
 
   hide: -> $(@el).hide()
 
+  show: -> $(@el).show()
+
   render: ->
     console.log "Rendering intro box"
     super examples: @collection.toJSON()

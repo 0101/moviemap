@@ -19,6 +19,7 @@ module.exports = class SearchResults extends BaseView
     @collection.bind 'all', (args...) -> console.log "search results collection event:", args...
 
   render: ->
+    @show()
     super movies: @collection.toJSON()
     itemWidth = @$('a').width()
     @$('ol').width @collection.size() * itemWidth

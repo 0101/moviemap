@@ -134,7 +134,7 @@ cursor:pointer; color:#000;
   /*-moz-transition: width 0.5s;
   -webkit-transition: width 0.5s;*/}
 .map-pane .map-container {
-	height:100%; background:#ddd; border-left:1px solid #aaa;}
+	height:100%; background:#a5bfdd; border-left:1px solid #aaa;}
 .map-pane .overlay {
 	position:absolute; left:0; right:0; top:0; bottom:0; background: #eee;
 	opacity:.8}
