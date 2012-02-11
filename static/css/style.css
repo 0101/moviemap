@@ -144,7 +144,7 @@ cursor:pointer; color:#000;
 	position:absolute; width:450px; left:50%; margin-left:-275px; top:270px;
 	padding:25px 50px;
     background:rgba(238,238,238,.7);
-	border:1px solid; border-color:#fff #bbb #bbb #fff;
+	border:1px solid; border-color:#fff #ddd #bbb #ddd;
 	box-shadow:0 10px 20px rgba(0,0,0,.2);}
 .intro-box p {font-size:16px;}
 

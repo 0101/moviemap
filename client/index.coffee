@@ -12,6 +12,7 @@ SearchResults = require './views/SearchResults'
 MovieDetail = require './views/MovieDetail'
 Map = require './views/Map'
 BottomPane = require './views/BottomPane'
+IntroBox = require './views/IntroBox'
 
 
 movieList = new MovieList()
@@ -20,9 +21,6 @@ selectedMovie = new Movie()
 searchResults = new SearchResults collection: movieList
 
 router = new Router movieList, selectedMovie
-router.bind 'all', (args...) ->
-  console.log "Router event: ", args
-  #$('body').addClass 'minimized'
 
 navigateTo = (url) -> router.navigate url, true
 
@@ -37,6 +35,10 @@ $(document).ready ->
 
   searchBar = new SearchBar el: $('#search-bar').get 0
   searchBar.bind 'search', (text) -> navigateTo "search/#{text}"
+
+  router.bind 'all', (args...) ->
+    console.log "Router event: ", args
+    introBox.hide()
 
   router.bind 'route:search', (q) ->
     searchBar.render q
@@ -73,7 +75,10 @@ $(document).ready ->
   movieDetail = new MovieDetail model: selectedMovie, map: map
   $('.movie-detail-pane').append movieDetail.el
 
+  introBox = new IntroBox el: $('.intro-box')
 
   Backbone.history.start pushState: true
+
+
 
 
