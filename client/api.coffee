@@ -22,3 +22,7 @@ module.exports =
     console.log "API getImdbData", movieId
     apiGet "imdbdata/#{escape movieId}", {}, callback
 
+  getExamples: (callback) ->
+    console.log 'API get examples'
+    apiGet 'examples', {}, callback
+

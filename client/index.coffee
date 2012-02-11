@@ -6,6 +6,7 @@ Backbone = require 'backbone-browserify'
 
 {Movie, MovieList} = require './models'
 {Router} = require './routers'
+API = require './api'
 
 SearchBar = require './views/SearchBar'
 SearchResults = require './views/SearchResults'
@@ -16,6 +17,7 @@ IntroBox = require './views/IntroBox'
 
 
 movieList = new MovieList()
+examples = new MovieList()
 selectedMovie = new Movie()
 
 searchResults = new SearchResults collection: movieList
@@ -62,8 +64,13 @@ $(document).ready ->
 
   searchBar.focus()
 
+  introBox = new IntroBox el: $('.intro-box'), collection: examples
+
   $('.search-results-pane').append searchResults.el
   searchResults.bind 'select', (url) -> navigateTo url.replace /^\//, ''
+  introBox.bind 'select', (url) ->
+    console.log 'introbox select:', url
+    navigateTo url.replace /^\//, ''
 
   bottomPane = new BottomPane el: $('.bottom-pane'), window: window
   bottomPane.setMapOnly()
@@ -75,10 +82,10 @@ $(document).ready ->
   movieDetail = new MovieDetail model: selectedMovie, map: map
   $('.movie-detail-pane').append movieDetail.el
 
-  introBox = new IntroBox el: $('.intro-box')
-
   Backbone.history.start pushState: true
 
-
+  if window.location.pathname is '/'
+    # we're on homepage, fetch examples
+    API.getExamples (response) -> examples.reset response
 
 

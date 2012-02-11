@@ -1,9 +1,25 @@
-.intro-box
+h1 Welcome to Movie Map
 
-  h1 Welcome to Movie Map
+p
+  | Ever watched a movie and wondered where it was shot? Well, with a bit
+  | of luck, you can find out here!
 
-  p
-    | Ever watched a movie and wondered where it was shot? Well, with a bit
-    | of luck, you can find out here!
+p Just type the movie's title in the search box above and hit enter.
 
-  p Just type the movie's title in the search box above and hit enter.
+
+- if (locals.examples && examples.length)
+
+  .hr
+
+  h2 Some examples:
+
+  for movie in examples
+    li.MovieThumb(class='movie-#{movie._id}')
+      a(href='#{movie.url}')
+        span.content
+          span.image
+            - if (movie.imageUrl)
+              span.poster(style='background-image:url("#{movie.imageUrl}")')
+          span.title
+            | #{movie.title}
+

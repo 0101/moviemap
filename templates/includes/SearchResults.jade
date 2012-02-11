@@ -3,7 +3,7 @@
 - else
   ol
     for movie in movies
-      li(class='movie-#{movie._id}')
+      li.MovieThumb(class='movie-#{movie._id}')
         a(href='#{movie.url}')
           span.content
             span.image

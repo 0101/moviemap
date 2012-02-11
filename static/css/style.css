@@ -10,6 +10,8 @@ a:focus {outline:none;}
 
 h1 {margin:0; font-size:28px; font-weight:normal;}
 
+h2 {margin:0; font-size:22px; font-weight:normal;}
+
 .imgh {position:absolute; top:-9000px;}
 
 .top-pane {
@@ -56,24 +58,24 @@ h1 {margin:0; font-size:28px; font-weight:normal;}
   border-bottom:1px solid #fff;
   -moz-transition: height 1.5s;
   -webkit-transition: height 1.5s;	}
-.SearchResults ol {margin:0 auto; padding:0;}
-.SearchResults li {list-style:none; display:inline-block;}
-.SearchResults li a {
+.SearchResults ol, .intro-box ol {margin:0 auto; padding:0;}
+.MovieThumb {list-style:none; display:inline-block;}
+.MovieThumb a {
 	display:inline-block; width:150px; vertical-align:text-top;
 	text-align:center;}
-.SearchResults li a .content {display:block; height:200px; padding:10px;}
-.SearchResults li a .content .image {
+.MovieThumb a .content {display:block; height:200px; padding:10px;}
+.MovieThumb a .content .image {
 	display:block; width:100%; height:140px;
 	background:url('../img/no-poster.png') no-repeat center;}
-.SearchResults li a .content .image .poster {
+.MovieThumb a .content .image .poster {
 	background: no-repeat center #333; width:100%; height:100%; display:block;
 	background-size:100% auto;}
-.SearchResults li a:focus,
-.SearchResults li a.selected {background:rgba(0,0,0,0.05);}
-.SearchResults li a .content .title {padding-top:3px; display:inline-block;}
-.SearchResults li a .content .year {color: #333;}
-.SearchResults li a:hover {background-color:rgba(255,255,255,.5);}
-.SearchResults li a {
+.MovieThumb a:focus,
+.MovieThumb a.selected {background:rgba(0,0,0,0.05);}
+.MovieThumb a .content .title {padding-top:3px; display:inline-block;}
+.MovieThumb a .content .year {color: #333;}
+.MovieThumb a:hover {background-color:rgba(255,255,255,.5);}
+.MovieThumb a {
   -moz-transition: background-color 0.2s;}
   /* Doesn't work properly in chrome... */
   /* -webkit-transition: background-color 0.2s;} */
@@ -142,10 +144,14 @@ cursor:pointer; color:#000;
 
 .intro-box {
 	position:absolute; width:450px; left:50%; margin-left:-275px; top:270px;
-	padding:25px 50px;
+	padding:30px 50px 15px;
     background:rgba(238,238,238,.7);
 	border:1px solid; border-color:#fff #ddd #bbb #ddd;
 	box-shadow:0 10px 20px rgba(0,0,0,.2);}
+.intro-box h1,
+.intro-box h2 {color:#555; text-shadow:0 1px 0 #fff;}
+.intro-box h2 {margin-bottom:7px;}
+.intro-box .hr {margin:30px 0 15px; border-top:1px solid #CECECE;}
 .intro-box p {font-size:16px;}
 
 /*.intro-box h1 {text-align:center;}*/
