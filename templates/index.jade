@@ -3,16 +3,17 @@ extends base
 block content
   .top-pane
     .logo-wrapper
-      h1: a(href='/'): span.imgh Movie Map
+      .logo: a(href='/'): span.imgh Movie Map
 
     #search-bar
-      include includes/search-bar
+      include includes/SearchBar
   .search-results-pane
   .bottom-pane.map-only
     .movie-detail-pane
     .map-pane
       .map-container
       .overlay
+    include includes/intro
 
 
 block scripts

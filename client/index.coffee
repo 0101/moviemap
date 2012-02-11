@@ -5,11 +5,13 @@ require './jquery.mousewheel'
 Backbone = require 'backbone-browserify'
 
 {Movie, MovieList} = require './models'
-{SearchBar, SearchResults, MovieDetail, Map, BottomPane} = require './views'
 {Router} = require './routers'
 
-
-
+SearchBar = require './views/SearchBar'
+SearchResults = require './views/SearchResults'
+MovieDetail = require './views/MovieDetail'
+Map = require './views/Map'
+BottomPane = require './views/BottomPane'
 
 
 movieList = new MovieList()

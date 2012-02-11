@@ -8,19 +8,21 @@ a, a:visited {text-decoration:none; color:#1122CC;}
 a:hover {color:#474747;}
 a:focus {outline:none;}
 
+h1 {margin:0; font-size:28px; font-weight:normal;}
+
 .imgh {position:absolute; top:-9000px;}
 
 .top-pane {
 	text-align:center; background:url('../img/bg1.jpg') no-repeat center #eee;
 	padding-top:10px;}
-.top-pane h1 {margin:0; border-bottom:1px solid #cfcfcf; padding:20px 0;}
-.top-pane h1 a {
+.top-pane .logo {margin:0; border-bottom:1px solid #cfcfcf; padding:20px 0;}
+.top-pane .logo a {
 	background:url('../img/logo-big.png') no-repeat; overflow:hidden;
 	width:460px; height:105px; display:block; margin:0 auto;}
 
 .minimized .top-pane {padding:0;}
-.minimized .top-pane h1 {display:inline;}
-.minimized .top-pane h1 a {
+.minimized .top-pane .logo {display:inline;}
+.minimized .top-pane .logo a {
   background-position: 10px 5px;
   background-size: auto 89%;
   height: 64px;
@@ -92,8 +94,7 @@ a:focus {outline:none;}
 	padding:20px; /*box-shadow: 0 20px 20px -20px #FFFFFF inset;*/
 	position:relative;
 	text-shadow:0 0 1px #fff,0 0 2px #fff,0 0 3px #fff;}
-.MovieDetail .info h2 {margin:0; font-size:28px; font-weight:normal;}
-.MovieDetail .info h2 .year {color:#666; padding:10px;}
+.MovieDetail .info h1 .year {color:#666; padding:10px;}
 .MovieDetail .info .imdb {font-size:16px;}
 .MovieDetail .info .plot {font-style:italic; color:#333;}
 .MovieDetail .info .image-bg {
@@ -104,12 +105,9 @@ a:focus {outline:none;}
 .MovieDetail ul {margin:0; padding:0;}
 .MovieDetail li {
   background:#ddd; cursor:default; color:#444;
-
   list-style:none; padding:0;  min-height:30px;
   border-top:1px solid #fff; border-bottom:1px solid #CECECE;
-  text-shadow:0 1px 1px #fff;
-
-  }
+  text-shadow:0 1px 1px #fff;}
 .MovieDetail li.geo {
 cursor:pointer; color:#000;
   background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
@@ -120,7 +118,6 @@ cursor:pointer; color:#000;
   background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 }
-
 
 .MovieDetail li div {padding:0 20px;}
 .MovieDetail li .location {padding:5px 20px 2px;}
@@ -142,3 +139,13 @@ cursor:pointer; color:#000;
 
 .bottom-pane.map-only .map-pane {width:100%;}
 .bottom-pane.map-only .movie-detail-pane {width:0%;}
+
+.intro-box {
+	position:absolute; width:450px; left:50%; margin-left:-275px; top:270px;
+	padding:25px 50px;
+    background:rgba(238,238,238,.7);
+	border:1px solid; border-color:#fff #bbb #bbb #fff;
+	box-shadow:0 10px 20px rgba(0,0,0,.2);}
+.intro-box p {font-size:16px;}
+
+/*.intro-box h1 {text-align:center;}*/
